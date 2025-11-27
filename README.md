@@ -1,2 +1,4 @@
 # COCY
-Compliment of the chef
+Комплимент от шефа. Compliment of the chef
+
+TMA приложение для пользователей заведений общественного питания
