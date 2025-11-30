@@ -31,8 +31,8 @@ const modeLabel = computed(() => {
 </script>
 
 <template>
-  <div class="app">
-    <div class="app-container">
+  <div class="screen">
+    <div class="screen-container">
       <header class="header">
         <h1 class="title">Комплимент от шефа</h1>
         <p class="subtitle">Добро пожаловать!</p>
@@ -79,23 +79,24 @@ const modeLabel = computed(() => {
 
       <div v-else class="loading">Загрузка…</div>
 
-      <!-- Debug info -->
+      <!-- Debug info (аккуратный) -->
       <div class="debug-info">
-        Telegram env: {{ isTelegramEnv ? 'да' : 'нет' }}
+        <span class="debug-text">Telegram env: {{ isTelegramEnv ? 'да' : 'нет' }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.app {
+.screen {
   min-height: 100vh;
   background: #f8f8f8;
   display: flex;
   justify-content: center;
+  padding-bottom: 70px;
 }
 
-.app-container {
+.screen-container {
   width: 100%;
   max-width: 420px;
   padding: 24px 16px 40px;
@@ -230,8 +231,11 @@ const modeLabel = computed(() => {
   margin-top: 24px;
   padding-top: 16px;
   text-align: center;
-  font-size: 12px;
+}
+
+.debug-text {
+  font-size: 11px;
   color: #8e8b8d;
-  border-top: 1px solid #d8d8d8;
 }
 </style>
+
