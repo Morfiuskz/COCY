@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import BottomNav, { type TabType } from './components/BottomNav.vue'
 import ComplimentsScreen from './components/ComplimentsScreen.vue'
 import ProfileScreen from './components/ProfileScreen.vue'
 import RegistrationsScreen from './components/RegistrationsScreen.vue'
 
-const activeTab = ref<TabType>('compliments')
+const activeTab = ref<'compliments' | 'profile' | 'registrations'>('compliments')
 
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  const sessionId = params.get('sessionId')
+
+  if (sessionId) {
+    // если пришли по ссылке из бота с sessionId — сразу открываем экран Регистраций
+    activeTab.value = 'registrations'
+  }
+})
 const handleTabUpdate = (tab: TabType) => {
   activeTab.value = tab
 }
