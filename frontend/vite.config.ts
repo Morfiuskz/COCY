@@ -8,7 +8,7 @@ export default defineConfig({
     host: true,                // слушать на 0.0.0.0
     port: 5173,
     allowedHosts: [
-      "684777b8d019.ngrok-free.app",       // разрешить все поддомены ngrok
+      "7f25ef132635.ngrok-free.app",       // разрешить все поддомены ngrok
     ],
   },
 });
