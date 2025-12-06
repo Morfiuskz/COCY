@@ -1,14 +1,21 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   server: {
-    host: true,                // слушать на 0.0.0.0
+    host: true,
     port: 5173,
+
     allowedHosts: [
-      "7f25ef132635.ngrok-free.app",       // разрешить все поддомены ngrok
+      "7f25ef132635.ngrok-free.app"
     ],
-  },
-});
+
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        changeOrigin: true
+      }
+    }
+  }
+})
