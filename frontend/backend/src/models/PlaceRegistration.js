@@ -30,3 +30,4 @@ const PlaceRegistration = mongoose.model(
 )
 
 export default PlaceRegistration
+
